@@ -1,0 +1,109 @@
+.timelineItem {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+  margin: 10px 0;
+  width: 50%;
+}
+.timelineItem:nth-child(odd) {
+  align-self: flex-end;
+  justify-content: flex-start;
+  padding-right: 0px;
+  padding-left: 30px;
+}
+.timelineItemContent {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  color: black;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  max-width: 70%;
+  align-items: flex-end;
+  width: 80rem;
+  padding: 15px;
+  text-align: right;
+}
+
+.timelineItemContent::after {
+  content: ' ';
+  background-color: #fff;
+  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  transform: rotate(45deg);
+  right: -7.5px;
+  top: calc(50% - 7.5px);
+  width: 15px;
+  height: 15px;
+}
+
+.timelineItem:nth-child(odd) .timelineItemContent {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.timelineItem:nth-child(odd) .timelineItemContent::after {
+  right: auto;
+  left: -7.5px;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.timelineItemContent .tag {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px;
+  position: absolute;
+  letter-spacing: 1px;
+  top: 5px;
+  left: 5px;
+  text-transform: uppercase;
+}
+
+.timelineItem:nth-child(odd) .timelineItemContent .tag {
+  left: auto;
+  right: 5px;
+}
+
+.timelineItemContent .time {
+  color: #777;
+  font-size: 14px;
+}
+
+.timelineItemContent p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.timelineItemContent .circle {
+  background-color: #fff;
+  border: 3px solid #acf39d;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 10px);
+  right: -40px;
+  z-index: 1;
+}
+
+.timelineItem:nth-child(odd) .timelineItemContent .circle {
+  right: auto;
+  left: -40px;
+}
+
+@media only screen and (max-width: 767px) {
+  .timelineItemContent,
+  .timelineItem:nth-child(odd) .timelineItemContent {
+    padding: 15px 10px;
+    text-align: center;
+    align-items: center;
+  }
+  .timelineItemContent .tag {
+    width: calc(100% - 10px);
+  }
+  .timelineItemContent time {
+    margin-top: 20px;
+  }
+}
